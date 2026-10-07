@@ -1,14 +1,13 @@
 # Output - Smart Canteen Token Management System
 
-### Console Output:
+## Console Output
 
-Smart Canteen Token Management
+    Smart Canteen Token Management
 
+    Pending Tokens: 101 -> 102 -> 103 -> 104 -> NULL
 
-Pending Tokens: 101 -> 102 -> 103 -> 104 -> NULL
+    Serving Token: 101
 
-Serving Token: 101
+    Pending Tokens: 102 -> 103 -> 104 -> NULL
 
-Pending Tokens: 102 -> 103 -> 104 -> NULL
-
-Token 103 is pending.
+    Token 103 is pending.
