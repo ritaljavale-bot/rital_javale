@@ -1,3 +1,12 @@
+# Output - Campus Lost and Found Tracker
+
+### Program Execution Screenshot:
+
+![output-screenshot](output.png)
+
+### Console Output Text:
+
+```
 Item ID   : 103
 Item Name : Scientific Calculator
 
@@ -25,3 +34,4 @@ Item Name : College ID Card
 
 Process exited after 1.028 seconds with return value 0
 Press any key to continue . . .
+```
