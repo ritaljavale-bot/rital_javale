@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A[START] --> B[Initialize List]
     B --> C[Add New Token]
@@ -10,3 +11,4 @@ flowchart TD
     H --> J[Display Updated List]
     I --> J
     J --> K[STOP]
+```
