@@ -1,3 +1,4 @@
+'''mermaid
 flowchart TD
     A([Start]) --> B["Define Node: Token No, Next pointer"]
     B --> C["Initialize front = NULL, rear = NULL, top = NULL"]
@@ -45,3 +46,4 @@ flowchart TD
 
     S -->|Display| S9["Display all stack elements"]
     S9 --> D
+'''
