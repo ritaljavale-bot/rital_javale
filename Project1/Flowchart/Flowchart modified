@@ -1,0 +1,19 @@
+START([START]) --> Init[Initialize Stack and Queue]
+Init --> Choice[Choose an Operation]
+Choice --> ADD[ADD TOKEN]
+ADD --> Enq[Enqueue Token]
+Enq --> Push[Push onto Stack]
+Choice --> SERVE[SERVE TOKEN]
+SERVE --> Deq[Dequeue Token]
+Choice --> SEARCH[SEARCH TOKEN]
+SEARCH --> SQ[Search Queue]
+Choice --> SOP[Stack Operation]
+SOP --> PEEK[PEEK]
+PEEK --> View[View Latest Order]
+SOP --> POP[POP]
+POP --> Undo[Undo Latest Order]
+View --> Disp[Display Pending Tokens]
+Undo --> Disp
+Deq --> Disp
+SQ --> Disp
+Disp --> STOP([STOP])
