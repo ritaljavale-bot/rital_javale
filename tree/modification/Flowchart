@@ -1,32 +1,22 @@
-## Flowchart: Combined BST Validation
-
-```mermaid
+```
+mermaid
 flowchart TD
-    A([Start]) --> B[/Read level-order input/]
+    A([Start]) --> B[Read tree input]
     B --> C[Construct binary tree]
-    C --> D[Initialize minimum and maximum bounds]
-    D --> E[Validate root node]
-
-    E --> F{Is current node NULL?}
-    F -- Yes --> G[Return Valid]
-    F -- No --> H{Does node violate its bounds?}
-
-    H -- Yes --> I[Record first violating node]
-    I --> J[Return Invalid]
-
-    H -- No --> K[Validate left subtree]
-    K --> L{Is left subtree valid?}
-
-    L -- No --> J
-    L -- Yes --> M[Validate right subtree]
-
-    M --> N{Is right subtree valid?}
-    N -- No --> J
-    N -- Yes --> G
-
-    G --> O[Display: Valid BST]
-    J --> P[Display: Invalid BST and violating node]
-
-    O --> Q([Stop])
-    P --> Q
+    C --> D[Initialize root bounds]
+    D --> E{Is current node NULL?}
+    E -- Yes --> F[Return True]
+    E -- No --> G{Node within allowed bounds?}
+    G -- No --> H[Record violating node]
+    H --> I[Return False]
+    G -- Yes --> J[Validate left subtree]
+    J --> K{Left subtree valid?}
+    K -- No --> I
+    K -- Yes --> L[Validate right subtree]
+    L --> M{Right subtree valid?}
+    M -- No --> I
+    M -- Yes --> F
+    F --> N[Display validation result]
+    I --> N
+    N --> O([Stop])
 ```
