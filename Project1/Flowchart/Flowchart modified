@@ -1,22 +1,57 @@
 ```mermaid
 flowchart TD
-    START([START]) --> Init[Initialize Stack and Queue]
-    Init --> Choice[Choose an Operation]
-    Choice --> ADD[ADD TOKEN]
-    ADD --> Enq[Enqueue Token]
-    Enq --> Push[Push onto Stack]
-    Choice --> SERVE[SERVE TOKEN]
-    SERVE --> Deq[Dequeue Token]
-    Choice --> SEARCH[SEARCH TOKEN]
-    SEARCH --> SQ[Search Queue]
-    Choice --> SOP[Stack Operation]
-    SOP --> PEEK[PEEK]
-    PEEK --> View[View Latest Order]
-    SOP --> POP[POP]
-    POP --> Undo[Undo Latest Order]
-    View --> Disp[Display Pending Tokens]
-    Undo --> Disp
-    Deq --> Disp
-    SQ --> Disp
-    Disp --> STOP([STOP])
+    A([START]) --> B["Initialize front, rear and top = NULL"]
+    B --> C{"Select Operation"}
+
+    C --> D["ENQUEUE: Add Token"]
+    D --> E{"Queue Empty?"}
+    E -- Yes --> F["front = rear = newNode"]
+    E -- No --> G["rear.next = newNode"]
+    G --> H["rear = newNode"]
+    F --> I["Token Added"]
+    H --> I
+
+    C --> J["DEQUEUE: Serve Token"]
+    J --> K{"Queue Empty?"}
+    K -- Yes --> L["Display Queue Empty"]
+    K -- No --> M["Delete Front Node"]
+    M --> N{"Front == NULL?"}
+    N -- Yes --> O["rear = NULL"]
+    N -- No --> P["Continue"]
+    O --> Q["Token Served"]
+    P --> Q
+
+    C --> R["SEARCH: Find Token"]
+    R --> S["Traverse Queue"]
+    S --> T{"Token Found?"}
+    T -- Yes --> U["Display Token Pending"]
+    T -- No --> V["Display Token Not Found"]
+
+    C --> W["DISPLAY QUEUE"]
+    W --> X["Traverse and Print Tokens"]
+
+    C --> Y["PUSH: Add Order"]
+    Y --> Z["Insert New Node at TOP"]
+
+    C --> AA["POP: Remove Latest Order"]
+    AA --> AB{"Stack Empty?"}
+    AB -- Yes --> AC["Display Stack Empty"]
+    AB -- No --> AD["Delete TOP Node"]
+
+    C --> AE["PEEK: View Latest Order"]
+    AE --> AF{"Stack Empty?"}
+    AF -- Yes --> AG["Display Stack Empty"]
+    AF -- No --> AH["Display TOP Token"]
+
+    I --> AI([STOP])
+    L --> AI
+    Q --> AI
+    U --> AI
+    V --> AI
+    X --> AI
+    Z --> AI
+    AC --> AI
+    AD --> AI
+    AG --> AI
+    AH --> AI
 ```
