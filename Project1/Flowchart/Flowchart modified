@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     START([START]) --> Init[Initialize Stack and Queue]
     Init --> Choice[Choose an Operation]
@@ -18,3 +19,4 @@ flowchart TD
     Deq --> Disp
     SQ --> Disp
     Disp --> STOP([STOP])
+```
