@@ -1,22 +1,24 @@
-```
-mermaid
+```mermaid
 flowchart TD
-    A([Start]) --> B[Read tree input]
-    B --> C[Construct binary tree]
-    C --> D[Initialize root bounds]
+    A([Start]) --> B[Read number of level-order entries and values]
+    B --> C[Construct binary tree using N for missing children]
+    C --> D[Initialize root with no min and max bound]
     D --> E{Is current node NULL?}
     E -- Yes --> F[Return True]
-    E -- No --> G{Node within allowed bounds?}
-    G -- No --> H[Record violating node]
+    E -- No --> G{Does node violate min or max bound?}
+    G -- Yes --> H[Record node's value]
     H --> I[Return False]
-    G -- Yes --> J[Validate left subtree]
-    J --> K{Left subtree valid?}
+    G -- No --> J[Validate left subtree with current node as upper bound]
+    J --> K{Is left subtree valid?}
     K -- No --> I
-    K -- Yes --> L[Validate right subtree]
-    L --> M{Right subtree valid?}
+    K -- Yes --> L[Validate right subtree with current node as lower bound]
+    L --> M{Is right subtree valid?}
     M -- No --> I
     M -- Yes --> F
-    F --> N[Display validation result]
+    F --> N{Are all nodes valid?}
+    N -- Yes --> O[Display - Tree is a valid BST]
+    N -- No --> P[Display - Tree is invalid and print first violating node]
+    O --> Q([Stop])
+    P --> Q
     I --> N
-    N --> O([Stop])
 ```
