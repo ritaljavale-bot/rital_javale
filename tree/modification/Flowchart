@@ -1,4 +1,3 @@
-```mermaid
 flowchart TD
     A([Start]) --> B[Read number of level-order entries and values]
     B --> C[Construct binary tree using N for missing children]
@@ -16,9 +15,8 @@ flowchart TD
     M -- No --> I
     M -- Yes --> F
     F --> N{Are all nodes valid?}
-    N -- Yes --> O[Display - Tree is a valid BST]
-    N -- No --> P[Display - Tree is invalid and print first violating node]
+    N -- Yes --> O[Display Tree is a valid BST]
+    N -- No --> P[Display Tree is invalid and print first violating node]
+    I --> N
     O --> Q([Stop])
     P --> Q
-    I --> N
-```
