@@ -125,39 +125,23 @@ Singly Linked List: A dynamic data structure made up of nodes, where each node c
 
 ### 7. Flowchart
 ### Flowchart
-```text
-              START
-                |
-      Initialize Stack and Queue
-                |
-        Choose an Operation
-                |
-     +----------+-----------+
-     |          |           |
-  ADD TOKEN  SERVE TOKEN  SEARCH TOKEN
-     |          |           |
-  Enqueue    Dequeue     Search Queue
-     |          |           |
-  Push onto  Remove      Display Found
-   Stack     Front Node  or Not Found
-     |          |           |
-     +----------+-----------+
-                |
-       Stack Operation?
-                |
-         +------+------+
-         |             |
-       PEEK           POP
-         |             |
-    View Latest    Undo Latest
-       Order          Order
-         |             |
-         +------+------+
-                |
-        Display Pending Tokens
-                |
-               STOP
-```
+START →
+Initialize Stack and Queue →
+Add New Food-Order Token →
+Enqueue to Queue and Push onto Stack →
+Search Token Using Token Number →
+Is Token Found? →
+YES → Display Token Pending →
+Serve Token? →
+YES → Delete First Node from Queue (FIFO) →
+Stack Operation →
+PEEK → View Latest Order →
+POP → Undo Latest Order →
+Display Pending Tokens →
+STOP
+NO → Display Token Not Found →
+Display Pending Tokens →
+STOP
 ### Expected Output
 ```text
 SMART CANTEEN MANAGEMENT SYSTEM
