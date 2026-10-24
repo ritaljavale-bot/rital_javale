@@ -1,27 +1,24 @@
-```mermaid
-flowchart TD
-    A([Start]) --> B[/Enter number of cities and roads/]
-    B --> C[Create adjacency list]
-    C --> D[/Enter roads and distances/]
-    D --> E[/Enter source and destination cities/]
-    E --> F[Initialize all distances to infinity]
-    F --> G[Set source distance to 0]
-    G --> H[Insert source into priority queue]
-    H --> I{Is priority queue empty?}
-    I -- No --> J[Remove city with minimum distance]
-    J --> K{Is distance outdated?}
-    K -- Yes --> I
-    K -- No --> L[Check neighboring cities]
-    L --> M{Is new distance shorter?}
-    M -- Yes --> N[Update distance and parent]
-    N --> O[Insert updated distance into queue]
-    O --> I
-    M -- No --> I
-    I -- Yes --> P[Display shortest distances]
-    P --> Q{Is destination reachable?}
-    Q -- No --> R[Display destination unreachable]
-    Q -- Yes --> S[Reconstruct path using parent array]
-    S --> T[Display shortest path and distance]
-    R --> U([Stop])
-    T --> U
-```
+## Algorithm
+
+1. Start.
+2. Input the number of cities and roads.
+3. Create an adjacency list to represent the weighted graph.
+4. Input the road connections and their non-negative distances.
+5. Input the source city and destination city.
+6. Initialize all distances to infinity and parent values to `-1`.
+7. Set the source city's distance to `0`.
+8. Insert the source city into the priority queue.
+9. Repeat while the priority queue is not empty:
+
+   * Remove the city with the minimum distance.
+   * Skip the city if its distance is outdated.
+   * Visit all neighboring cities.
+   * Calculate the new distance to each neighbor.
+   * If the new distance is smaller, update the distance and parent arrays.
+   * Insert the updated distance into the priority queue.
+10. Display the shortest distances from the source city to all reachable cities.
+11. Check whether the destination is reachable.
+12. If reachable, reconstruct the shortest path using the parent array.
+13. Display the shortest path and its total distance.
+14. If unreachable, display an appropriate message.
+15. Stop.
