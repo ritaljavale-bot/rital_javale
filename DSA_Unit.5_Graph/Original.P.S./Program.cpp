@@ -2,6 +2,8 @@
 #include <vector>
 #include <queue>
 #include <climits>
+#include <functional>
+
 using namespace std;
 
 int main()
@@ -11,10 +13,22 @@ int main()
     cout << "Enter number of cities: ";
     cin >> n;
 
-    vector<vector<pair<int, int>>> graph(n);
+    if (n <= 0)
+    {
+        cout << "Invalid number of cities!";
+        return 0;
+    }
+
+    vector<vector<pair<int, int> > > graph(n);
 
     cout << "Enter number of roads: ";
     cin >> roads;
+
+    if (roads < 0)
+    {
+        cout << "Invalid number of roads!";
+        return 0;
+    }
 
     cout << "Enter road details (city1 city2 distance):\n";
 
@@ -29,8 +43,8 @@ int main()
             return 0;
         }
 
-        graph[u].push_back({v, w});
-        graph[v].push_back({u, w});
+        graph[u].push_back(make_pair(v, w));
+        graph[v].push_back(make_pair(u, w));
     }
 
     int source, destination;
@@ -51,12 +65,14 @@ int main()
     vector<int> dist(n, INT_MAX);
     vector<int> parent(n, -1);
 
-    priority_queue<pair<int, int>,
-                   vector<pair<int, int>>,
-                   greater<pair<int, int>>> pq;
+    priority_queue<
+        pair<int, int>,
+        vector<pair<int, int> >,
+        greater<pair<int, int> >
+    > pq;
 
     dist[source] = 0;
-    pq.push({0, source});
+    pq.push(make_pair(0, source));
 
     while (!pq.empty())
     {
@@ -67,17 +83,18 @@ int main()
         if (d != dist[u])
             continue;
 
-        for (auto road : graph[u])
+        for (int i = 0; i < graph[u].size(); i++)
         {
-            int v = road.first;
-            int w = road.second;
+            int v = graph[u][i].first;
+            int w = graph[u][i].second;
 
             if (dist[u] <= INT_MAX - w &&
                 dist[u] + w < dist[v])
             {
                 dist[v] = dist[u] + w;
                 parent[v] = u;
-                pq.push({dist[v], v});
+
+                pq.push(make_pair(dist[v], v));
             }
         }
     }
@@ -103,8 +120,13 @@ int main()
     {
         vector<int> path;
 
-        for (int v = destination; v != -1; v = parent[v])
+        int v = destination;
+
+        while (v != -1)
+        {
             path.push_back(v);
+            v = parent[v];
+        }
 
         cout << "\nShortest distance to destination: "
              << dist[destination];
@@ -124,3 +146,4 @@ int main()
 
     return 0;
 }
+
